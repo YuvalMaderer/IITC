@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      let length, height;
+
+      while (true) {
+        length = prompt("Enter the length of malben: ");
+        let check = parseInt(length);
+        if (!isNaN(check) && check > 0) {
+          console.log("Valid input: " + check);
+          break;
+        } else {
+          console.log(
+            "Invalid input. Please enter a valid integer greater than 0."
+          );
+        }
+      }
+
+      while (true) {
+        height = prompt("Enter the height of malben: ");
+        let checking = parseInt(height);
+        if (!isNaN(checking) && checking > 0) {
+          console.log("Valid input: " + checking);
+          break;
+        } else {
+          console.log(
+            "Invalid input. Please enter a valid integer greater than 0."
+          );
+        }
+      }
+
+      alert("The area of the malben is: " + length * height);
+      alert("The perimeter is: " + (Number(length) + Number(height)) * 2);
+    </script>
+  </body>
+</html>
