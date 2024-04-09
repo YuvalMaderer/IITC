@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let num;
+      let array = [];
+      while (true) {
+        num = prompt("Enter a number");
+        if (!isNaN(num) && num > 0) {
+          array.push(Number(num));
+        } else {
+          break;
+        }
+      }
+      let minNumber = Math.min(...array);
+      let maxNumber = Math.max(...array);
+      console.log("min number is: " + minNumber);
+      console.log("Max Number is: " + maxNumber);
+    </script>
+  </body>
+</html>

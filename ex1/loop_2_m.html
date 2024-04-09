@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let num1 = prompt("enter the 1 number"),
+        num2 = prompt("enter the 2 number"),
+        num3 = prompt("enter the 3 number"),
+        num4 = prompt("enter the 4 number"),
+        num5 = prompt("enter the 5 number");
+      const lst = [
+        Number(num1),
+        Number(num2),
+        Number(num3),
+        Number(num4),
+        Number(num5),
+      ];
+      let sum = 0;
+      for (let i of lst) {
+        sum += i;
+      }
+      const length = lst.length;
+      console.log(sum / length);
+    </script>
+  </body>
+</html>

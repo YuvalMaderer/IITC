@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script>
+      let randomNumber = _.random(0, 99);
+      let guessing_times = 0;
+      let startTime = new Date();
+      while (true) {
+        guess = prompt("enter your guess");
+        if (guess == randomNumber) {
+          guessing_times += 1;
+          let endTime = new Date();
+          let timeTook = (endTime - startTime) / 1000;
+          console.log("good job! the number was: " + randomNumber);
+          console.log("the number of tries: " + guessing_times);
+          console.log("Time taken: " + timeTook + " seconds");
+          break;
+        } else if (guess > randomNumber) {
+          alert("lower");
+        } else if (guess < randomNumber) {
+          alert("higher");
+        }
+        guessing_times += 1;
+      }
+    </script>
+  </body>
+</html>
