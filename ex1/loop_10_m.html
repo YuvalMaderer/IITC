@@ -8,12 +8,18 @@
   <body>
     <script>
       let num = prompt("please enter a number");
-      let digit;
+      let digit,
+        lst = [];
       do {
         digit = num % 10;
-        console.log(digit);
+        lst.push(digit);
         num = Math.floor(num / 10);
       } while (num > 0);
+
+      let reversedLst = lst.reverse();
+      for (let dig of reversedLst) {
+        console.log(dig);
+      }
     </script>
   </body>
 </html>
