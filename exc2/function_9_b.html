@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function febo(num) {
+        let arr = [1, 1];
+        let before;
+        for (let i = 2; i < num; i++) {
+          before = parseInt(arr[i - 1]) + parseInt(arr[i - 2]);
+          arr.push(before);
+        }
+        return arr;
+      }
+
+      console.log(febo(10));
+    </script>
+  </body>
+</html>

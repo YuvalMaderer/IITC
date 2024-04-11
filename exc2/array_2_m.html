@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script>
+      let arr = [],
+        randomNumber,
+        i = 0,
+        sum = 0,
+        avg;
+
+      do {
+        randomNumber = _.random(0, 99);
+        arr.push(randomNumber);
+        i++;
+      } while (i < 5);
+
+      for (let num of arr) {
+        sum += num;
+      }
+      
+      avg = parseFloat(sum / arr.length);
+      console.log("the array is: " + arr);
+      console.log("the sum is: " + sum);
+      console.log("the avg is: " + avg);
+    </script>
+  </body>
+</html>

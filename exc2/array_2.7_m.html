@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function dupli(arr1, arr2) {
+        dups = 0;
+        for (let i of arr1) {
+          for (let j of arr2) {
+            if (i === j) {
+              dups += 1;
+            }
+          }
+        }
+        return dups;
+      }
+
+      arr1 = [1, 5, 8, 7, 9, 2];
+      arr2 = [5, 8, 2, 12, 45, 7];
+
+      console.log(dupli(arr1, arr2));
+    </script>
+  </body>
+</html>

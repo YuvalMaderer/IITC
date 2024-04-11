@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sumNum(num) {
+        let digit,
+          lst = [];
+        do {
+          digit = num % 10;
+          lst.push(digit);
+          num = Math.floor(num / 10);
+        } while (num > 0);
+
+        let sum = 0;
+        for (let item of lst) {
+          sum += item;
+        }
+
+        return sum;
+      }
+
+      console.log(sumNum(458));
+    </script>
+  </body>
+</html>

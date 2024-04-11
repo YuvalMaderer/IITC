@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function dups(arr) {
+        let ans = [];
+        let count = 0;
+        for (let i of arr) {
+          count = 0;
+          for (let j of arr) {
+            if (j == i) {
+              count++;
+            }
+          }
+          if (count == 1) {
+            ans.push(i);
+          }
+        }
+        return ans;
+      }
+
+      let arr = [1, 6, 7, 6, 8, 1];
+
+      console.log(dups(arr));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function find(arr, num) {
+        for (let i of arr) {
+          if (num === i) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      let arr = [1, 2, 3, 4, 5];
+      let num = 9;
+
+      console.log(find(arr, num));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let i = "hello",
+        j = "bye";
+      function change(arg1, arg2) {
+        let copy_arg = arg1;
+        arg1 = arg2;
+        arg2 = copy_arg;
+        return [arg1, arg2];
+      }
+
+      console.log(change(i, j));
+    </script>
+  </body>
+</html>
