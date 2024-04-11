@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        function biggest(string) {
-            let max_lengh = 0
-            let splitted_string = string.split(",")
-            for (let i of splitted_string) {
-                
-            }
+      function biggest(string) {
+        let max_lengh = 0;
+        let splitted_string = string.split(",");
+        for (let i of splitted_string) {
+          let [key, value] = i.split(":");
+          if (value.length > max_lengh) {
+            max_lengh = value.length;
+          }
         }
+        return max_lengh;
+      }
     </script>
-</body>
+  </body>
 </html>
