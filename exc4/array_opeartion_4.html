@@ -7,25 +7,26 @@
   </head>
   <body>
     <script>
-      let nums = [1, 2, 3, 4];
+      let books = [
+        { name: "book1", pages: 30 },
+        { name: "book2", pages: 40 },
+        { name: "book3", pages: 50 },
+        { name: "book4", pages: 60 },
+        { name: "book5", pages: 70 },
+      ];
 
-      function updateNum(numsArray, numToUpdate) {
-        for (let i = 0; i < numsArray.length; i++) {
-          if (numsArray[i] === numToUpdate) {
-            numsArray[i]++;
+      function deleteBook(booksArray, bookName) {
+        for (let i = 0; i < booksArray.length; i++) {
+          if (booksArray[i].name === bookName) {
+            booksArray.splice(i, 1);
+            return true;
           }
         }
         return false;
       }
 
-      updateNum(nums, 2);
-      console.log(nums);
-
-      updateNum(nums, 3);
-      console.log(nums);
-
-      updateNum(nums, 4);
-      console.log(nums);
+      deleteBook(books, "book1");
+      console.log(books);
     </script>
   </body>
 </html>

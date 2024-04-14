@@ -15,17 +15,17 @@
         { name: "book5", pages: 70 },
       ];
 
-      function deleteBook(booksArray, bookName) {
-        for (let i = 0; i < booksArray.length; i++) {
-          if (booksArray[i].name === bookName) {
-            booksArray.splice(i, 1);
+      function updateBookPages(bookArray, bookName, bookPages) {
+        for (let i = 0; i < bookArray.length; i++) {
+          if (bookArray[i].name === bookName) {
+            bookArray[i].pages = bookPages;
             return true;
           }
         }
-        return false;
+        return null;
       }
 
-      deleteBook(books, "book1");
+      updateBookPages(books, "book1", 3432);
       console.log(books);
     </script>
   </body>
