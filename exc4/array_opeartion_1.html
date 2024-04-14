@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let books = [
+        { name: "book1", pages: 30 },
+        { name: "book2", pages: 40 },
+        { name: "book3", pages: 50 },
+        { name: "book4", pages: 60 },
+        { name: "book5", pages: 70 },
+      ];
+
+      function addBook(bookArray, bookName, bookPages) {
+        newBook = { name: bookName, pages: bookPages };
+        bookArray.push(newBook);
+      }
+
+      addBook(books, "book20", 3443);
+      console.log(books);
+
+      addBook(books, "book34320", 5343454545);
+      console.log(books);
+    </script>
+  </body>
+</html>

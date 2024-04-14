@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let nums = [1, 2, 3, 4];
+
+      function updateNum(numsArray, numToUpdate) {
+        for (let i = 0; i < numsArray.length; i++) {
+          if (numsArray[i] === numToUpdate) {
+            numsArray[i]++;
+          }
+        }
+        return false;
+      }
+
+      updateNum(nums, 2);
+      console.log(nums);
+
+      updateNum(nums, 3);
+      console.log(nums);
+
+      updateNum(nums, 4);
+      console.log(nums);
+    </script>
+  </body>
+</html>
