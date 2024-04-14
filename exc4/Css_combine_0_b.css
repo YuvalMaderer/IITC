@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    color: black;
+}
+
+body {
+    margin: 0;
+}
+  
+.flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 2px solid #F2F3F4;
+}
+
+a {
+    text-decoration: none;
+}
+
+.firstNavBar {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #F2F3F4;
+}
+
+.secondNavBar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    height: 28px;
+    align-items: center;
+}
+
+.padding12-8 {
+    padding: 12px 8px;
+    font-weight: bold;
+}
+
+.logo {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.register {
+    background-color: black;
+    color: white;
+    padding: 2px 8px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login {
+    padding: 2px 8px;
+    color: black;
+    margin-left: 10px;
+}
+
+.RegisterLogin {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search {
+    width: 24px;
+    height: 24px;
+}
+
+.left {
+    margin-right: 16px;
+}
+
+.register:hover {
+    background-color: #3A3C3E;
+}
+
+.login:hover {
+    background-color: #3A3C3E;
+    color: white;
+}
+
+a:hover {
+    background-color: #E6E8EA;
+}
+
+.second {
+    font-size: 15px;
+}
