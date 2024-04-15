@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="mainContainer">
+      <div class="bigResultsContainer">
+        <div class="resultsContainer">
+          <button onclick="clearBoard()" class="clearButton">CE</button>
+          <p id="result" class="result"></p>
+        </div>
+      </div>
+
+      <div class="numbersContainer">
+        <button onclick="addNumberToBoard7()" class="numberButton">7</button>
+        <button onclick="addNumberToBoard8()" class="numberButton">8</button>
+        <button onclick="addNumberToBoard9()" class="numberButton">9</button>
+        <button onclick="addNumberToBoard4()" class="numberButton">4</button>
+        <button onclick="addNumberToBoard5()" class="numberButton">5</button>
+        <button onclick="addNumberToBoard6()" class="numberButton">6</button>
+        <button onclick="addNumberToBoard1()" class="numberButton">1</button>
+        <button onclick="addNumberToBoard2()" class="numberButton">2</button>
+        <button onclick="addNumberToBoard3()" class="numberButton">3</button>
+        <button onclick="addNumberToBoard0()" class="numberButton">0</button>
+        <button onclick="addNumberToBoardPoint()" class="numberButton">
+          .
+        </button>
+        <button onclick="printResult(num1, action)" class="actionButton resultButton">
+          =
+        </button>
+      </div>
+
+      <div class="actionsContainer">
+        <button onclick="divNumbers()" class="actionButton" id="divide">÷</button>
+        <button onclick="multNumbers()" class="actionButton" id="multi">×</button>
+        <button onclick="minusNumbers()" class="actionButton" id="minus">-</button>
+        <button onclick="addNumbers(num1, num2)" class="actionButton" id="plus">+</button>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
