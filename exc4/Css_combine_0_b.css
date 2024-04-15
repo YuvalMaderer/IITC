@@ -12,7 +12,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 16px;
-    border-bottom: 2px solid #F2F3F4;
+    border-bottom: 1px solid #F2F3F4;
 }
 
 a {
@@ -22,7 +22,7 @@ a {
 .firstNavBar {
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid #F2F3F4;
+    border-bottom: 1px solid #F2F3F4;
 }
 
 .secondNavBar {
@@ -31,6 +31,8 @@ a {
     gap: 10px;
     height: 28px;
     align-items: center;
+    border-bottom: 1px solid black;
+    margin-bottom: 8px;
 }
 
 .padding12-8 {
@@ -90,5 +92,11 @@ a:hover {
 }
 
 .second {
-    font-size: 15px;
+    font-size: 13px;
+    height: 100%;
+    align-content: center;
+}
+
+.Earth {
+    border-right: 1px solid F2F3F4;
 }
