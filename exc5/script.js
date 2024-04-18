@@ -7,84 +7,12 @@ const multiButtonSelector = document.querySelector("#multi")
 let num1 = 0, num2 = 0, action = ""
 
 
-function addNumberToBoard0() {
+function addNumberToBoard(num) {
     if (!checkButtons()) {
         elemResult.innerText = ""
     }
     nullifyButtons()
-    elemResult.innerText += "0"
-}
-
-function addNumberToBoard1() {
-    if (!checkButtons()) {
-        elemResult.innerText = ""
-    }
-    nullifyButtons()
-    elemResult.innerText += "1"
-}
-
-function addNumberToBoard2() {
-    if (!checkButtons()) {
-        elemResult.innerText = ""
-    }
-    nullifyButtons()
-    elemResult.innerText += "2"
-}
-
-function addNumberToBoard3() {
-    if (!checkButtons()) {
-        elemResult.innerText = ""
-    }
-    nullifyButtons()
-    elemResult.innerText += "3"
-}
-
-function addNumberToBoard4() {
-    if (!checkButtons()) {
-        elemResult.innerText = ""
-    }
-    nullifyButtons()
-    elemResult.innerText += "4"
-}
-
-function addNumberToBoard5() {
-    if (!checkButtons()) {
-        elemResult.innerText = ""
-    }
-    nullifyButtons()
-    elemResult.innerText += "5"
-}
-
-function addNumberToBoard6() {
-    if (!checkButtons()) {
-        elemResult.innerText = ""
-    }
-    nullifyButtons()
-    elemResult.innerText += "6"
-}
-
-function addNumberToBoard7() {
-    if (!checkButtons()) {
-        elemResult.innerText = ""
-    }
-    nullifyButtons()
-    elemResult.innerText += "7"
-}
-
-function addNumberToBoard8() {
-    if (!checkButtons()) {
-        elemResult.innerText = ""
-    }
-    nullifyButtons()
-    elemResult.innerText += "8"
-}
-
-function addNumberToBoard9() {
-    if (!checkButtons()) {
-        elemResult.innerText = ""
-    }
-    nullifyButtons()
-    elemResult.innerText += "9"
+    elemResult.innerText += `${num}`
 }
 
 function addNumberToBoardPoint() {

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="row">
+        <div class="left">
+          <div class="code">?</div>
+          <div class="code">?</div>
+          <div class="code">?</div>
+          <div class="code">?</div>
+        </div>
+        <div class="rightGrid">
+          <p class="bulls font">Bulls</p>
+          <p class="cows font">Cows</p>
+          <p class="font" id="bulls">0</p>
+          <p class="font" id="cows">0</p>
+        </div>
+      </div>
+      <div id="addingGuess"></div>
+      <div class="row">
+        <div class="left">
+          <div onclick="elemSelected(1)" class="guess" id="num1">0</div>
+          <div onclick="elemSelected(2)" class="guess" id="num2">1</div>
+          <div onclick="elemSelected(3)" class="guess" id="num3">2</div>
+          <div onclick="elemSelected(4)" class="guess" id="num4">3</div>
+        </div>
+        <div class="right">
+          <button onclick="submitGuess()" class="goButton">Go</button>
+          <p id="duplicates" class="font"></p>
+        </div>
+      </div>
+
+      <div class="keyboard">
+        <button onclick="updateGuess(0)" class="keyboardButton">0</button>
+        <button onclick="updateGuess(1)" class="keyboardButton">1</button>
+        <button onclick="updateGuess(2)" class="keyboardButton">2</button>
+        <button onclick="updateGuess(3)" class="keyboardButton">3</button>
+        <button onclick="updateGuess(4)" class="keyboardButton">4</button>
+        <button onclick="updateGuess(5)" class="keyboardButton">5</button>
+        <button onclick="updateGuess(6)" class="keyboardButton">6</button>
+        <button onclick="updateGuess(7)" class="keyboardButton">7</button>
+        <button onclick="updateGuess(8)" class="keyboardButton">8</button>
+        <button onclick="updateGuess(9)" class="keyboardButton">9</button>
+      </div>
+    </main>
+
+    <div id="namePopup" class="popup">
+      <form class="popup-content">
+        <label for="userName">Please enter your name: </label>
+        <input type="text" id="userName" class="nameInput" />
+        <button class="goButton submit" id="submit" onclick="saveUserName()">
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <div id="endPopup" class="endPopup">
+      <div class="endPopup-content">
+        <p id="gjMessage"></p>
+        <p id="timeTook"></p>
+        <p id="theCode"></p>
+        <p id="anotherGame">would you like to play another game?</p>
+        <div class="buttons">
+          <button class="yes button" id="yes" onclick="clearBoard()">
+            Yes
+          </button>
+          <button class="no button" id="no" onclick="stopPlaying()">No</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

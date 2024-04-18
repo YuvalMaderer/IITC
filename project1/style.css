@@ -1,0 +1,350 @@
+html {
+   height: 100vh; 
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0; 
+}
+
+main {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #B9D9EB;
+    border-radius: 10px;
+    gap: 20px;
+    padding: 1rem;
+    width: 600px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 0 20px;
+    background-color: #6495ED;
+    border-radius: 10px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.rightGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 50px;
+}
+
+.right {
+    display: flex;
+    margin-left: 1rem;
+    justify-content: center;
+    align-items: center; 
+}
+
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100%;
+    gap: 10px;
+}
+
+p {
+   margin: 0;
+   text-align: center;
+   line-height: 50px;
+    margin-inline: 10px;
+}
+
+.keyboard {
+    display: flex;
+}
+
+.font {
+    font-family: "Codec cold",sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+.goButton {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  grid-row-start: 0;
+  grid-row-end: 1;
+}
+
+.goButton:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.goButton:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.keyboardButton {
+  align-items: center;
+  background-image: linear-gradient(135deg, #8540f3 40%, #794dfc);
+  border: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: "Codec cold",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 54px;
+  justify-content: center;
+  letter-spacing: .4px;
+  line-height: 1;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3px;
+  margin-inline: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.keyboardButton:active {
+  outline: 0;
+}
+
+.keyboardButton:hover {
+  outline: 0;
+}
+
+.keyboardButton span {
+  transition: all 200ms;
+}
+
+.keyboardButton:hover span {
+  transform: scale(.9);
+  opacity: .75px;
+}
+
+@media screen and (max-width: 991px) {
+  .keyboardButton {
+    font-size: 15px;
+    height: 50px;
+  }
+
+  .keyboardButton span {
+    line-height: 50px;
+  }
+}
+
+.guess, .code {
+  background-color: #fff;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.guess:hover, .code:hover {
+  background-color: #1e293b;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .guess, .code {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+}
+
+.popup {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999; 
+}
+    
+.popup-content {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fefefe;
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 250px;
+  height: 140px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center;
+}
+  
+.submit {
+  color: white;
+  width: 100px;
+  height: 50px;
+  margin-top: 20px;
+}
+
+.nameInput {
+  text-align: center;
+}
+
+* {
+  font-family: "Codec cold",sans-serif;
+}
+
+.endPopup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.endPopup-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #fefefe;
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+}
+
+#gjMessage {
+  grid-column: span 2;
+  text-align: center;
+}
+
+#timeTook {
+  grid-column: span 2;
+  text-align: center;
+}
+
+#anotherGame {
+  grid-column: span 2;
+  text-align: center;
+}
+
+#theCode {
+  grid-column: span 2;
+  text-align: center;
+}
+
+.buttons {
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button {
+  width: 50px;
+  height: 50px;
+}
+
+.yes, .no {
+background: #21e669;
+border-radius: 11px;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+font-family: Mija,-apple-system,BlinkMacSystemFont,Roboto,"Roboto Slab","Droid Serif","Segoe UI",system-ui,Arial,sans-serif;
+font-weight: 700;
+text-shadow: rgba(0, 0, 0, .3) 1px 1px 1px;
+text-underline-offset: 1px;
+touch-action: manipulation;
+border: 0;
+width: 70px;
+}
+
+.no {
+  background: #e62143;
+}
+
