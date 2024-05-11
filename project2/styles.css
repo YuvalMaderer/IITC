@@ -1,0 +1,27 @@
+#board {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-template-rows: repeat(10, 30px);
+  }
+  
+  .cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .cell.hidden {
+    background-color: #ccc;
+  }
+  
+  .cell.mine {
+    background-color: red;
+    color: white;
+  }
+  
