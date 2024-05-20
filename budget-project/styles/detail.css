@@ -1,0 +1,77 @@
+.detail {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.line {
+    display: flex;
+    border-bottom: 1px solid var(--grey);
+}
+
+.line:hover {
+    .incomeMuch {
+        margin-right: 1rem;
+        transition: 0.5s;
+    }
+    .precent {
+        margin-right: 1.5rem;
+        transition: 0.5s;
+    }
+    .bi-x-circle-income {
+        display: inline-block;
+    }
+    .bi-x-circle-expenses {
+        display: inline-block;
+    }
+}
+
+.incomeDetail {
+    width: 25rem;
+}
+
+.expensesDetail {
+    width: 25rem;
+}
+
+.incomeDetailText {
+    color: var(--blue);
+    font-size: 1.5rem;
+    margin-top: 4rem;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--grey);
+}
+
+.expensesDetailText {
+    color: var(--red);
+    font-size: 1.5rem;
+    margin-top: 4rem;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--grey);
+}
+
+.incomeTitle, .expensesTitle {
+    flex-grow: 1;
+}
+
+.incomeMuch {
+    color: var(--blue);
+    transition: 0.5s;
+}
+
+.expensesMuch {
+    color: var(--red);
+}
+
+.bi-x-circle-income {
+    display: none;
+    color: var(--blue);
+    margin-top: 17px;
+    cursor: pointer;
+}
+
+.bi-x-circle-expenses {
+    display: none;
+    color: var(--red);
+    margin-top: 17px;
+    cursor: pointer;
+}

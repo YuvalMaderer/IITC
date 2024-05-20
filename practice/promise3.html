@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="dom"></div>
+
+    <script>
+      // --- function return promise
+      const resolveHandler = (val) => console.log(val);
+      const rejectHandler = (val) => console.error(val);
+      const domElem = document.getElementById("dom");
+      function isEvenAsync(val) {
+        const promise = new Promise((resolve, reject) => {
+          if (Number(val)) {
+            resolve(val % 2 == 0);
+          } else {
+            reject("validation error");
+          }
+        });
+        return promise;
+      }
+
+      let promise = isEvenAsync(2);
+      promise
+        .then((message) => {
+          domElem.textContent = message;
+        })
+        .catch((error) => {
+          domElem.textContent = error;
+        });
+    </script>
+  </body>
+</html>

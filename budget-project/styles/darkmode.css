@@ -1,0 +1,39 @@
+.dark-mode-button {
+    cursor: pointer;
+    border: none;
+    background-color: #3a3a3a;
+    color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+    height: 34px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+body.dark-mode {
+    background-color: #31363F;
+    color: white;
+}
+
+.update.dark-mode {
+    background-color: #222831;
+    border-bottom: 1px solid #76ABAE;
+}
+
+#snackbar.dark-mode {
+    background-color: white;
+    color: #444444;
+}
+
+.submit.dark-mode {
+    background-color: #222831;
+    color: var(--blue);
+}
+
+.select.dark-mode, .description.dark-mode, .value.dark-mode {
+    background-color: #76ABAE;
+}
+
+select.dark-mode {
+    border: 1px solid #222831;
+}

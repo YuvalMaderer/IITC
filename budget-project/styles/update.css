@@ -1,0 +1,38 @@
+.update {
+    background-color: rgb(241, 241, 241);
+    height: 4.5rem;
+    margin-top: 12px;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.select {
+    height: 65%;
+    width: 5%;
+    border: 1px solid var(--grey);
+}
+
+.description {
+    height: 65%;
+    width: 35%;
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding-inline: 20px;
+}
+
+.value {
+    height: 65%;
+    width: 10%;
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding-inline: 20px;
+}
+
+.submit {
+    border: none;
+    cursor: pointer;
+    color: var(--blue);
+}

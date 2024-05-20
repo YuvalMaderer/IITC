@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .loader {
+        display: none;
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid #3498db;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dom"></div>
+    <div class="loader"></div>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script>
+      const url1 = "https://jsonplaceholder.typicode.com/posts";
+      const domElem = document.getElementById("dom");
+
+      axios
+        .get(url1)
+        .then(function (response) {
+          // handle success
+          console.log(response.data);
+          const p = document.createElement("p");
+          p.textContent = `amount of hara: ${response.data.length}`;
+          domElem.appendChild(p);
+          const table = document.createElement("table");
+          for (let i of response.data) {
+            const tr = document.createElement("tr");
+            const td1 = document.createElement("td");
+            const td2 = document.createElement("td");
+            const td3 = document.createElement("td");
+            const td4 = document.createElement("td");
+
+            td1.textContent = i.userId;
+            td2.textContent = i.id;
+            td3.textContent = i.title;
+            td4.textContent = i.body;
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            table.appendChild(tr);
+          }
+
+          domElem.appendChild(table);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>

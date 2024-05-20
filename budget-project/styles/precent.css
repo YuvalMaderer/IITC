@@ -1,0 +1,12 @@
+.precent {
+    background-color: rgb(255, 139, 139);
+    color: var(--red);
+    width: 2rem;
+    text-align: center;
+    margin-right: 10px;
+    padding: 6px;
+    font-size: 12px;
+    transition: 0.5s;
+    margin-left: 10px;
+    border-radius: 4px;
+}

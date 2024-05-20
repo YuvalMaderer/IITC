@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid #3498db;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        transform: translate(-50%, -50%);
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dom"></div>
+    <div class="loader" id="loader"></div>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script>
+      const url1 = "https://jsonplaceholder.typicode.com/posts/2";
+      const url2 = "https://jsonplaceholder.typicode.com/posts/5";
+      const url3 = "https://jsonplaceholder.typicode.com/posts/11";
+      const domElem = document.getElementById("dom");
+      const loader = document.getElementById("loader");
+      const ids = [2, 5, 11];
+      const url = "https://jsonplaceholder.typicode.com/posts/";
+
+      function showLoader() {
+        loader.style.display = "block";
+      }
+
+      function hideLoader() {
+        loader.style.display = "none";
+      }
+      function showData() {
+        ids.forEach((id) => {
+          showLoader();
+          axios
+            .get(url + id)
+            .then(function (response) {
+              console.log(response.data);
+              const table = document.createElement("table");
+              const tr = document.createElement("tr");
+              const td1 = document.createElement("td");
+              const td2 = document.createElement("td");
+              const td3 = document.createElement("td");
+              const td4 = document.createElement("td");
+
+              td1.textContent = response.data.userId;
+              td2.textContent = response.data.id;
+              td3.textContent = response.data.title;
+              td4.textContent = response.data.body;
+              tr.appendChild(td1);
+              tr.appendChild(td2);
+              tr.appendChild(td3);
+              tr.appendChild(td4);
+              table.appendChild(tr);
+
+              domElem.appendChild(table);
+              hideLoader();
+            })
+            .catch(function (error) {
+              console.error(error);
+              hideLoader();
+            });
+        });
+      }
+
+      setTimeout(showData, 3000);
+    </script>
+  </body>
+</html>

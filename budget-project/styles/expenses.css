@@ -1,0 +1,16 @@
+.expenses {
+    display: flex;
+    background-color: var(--red);
+    width: 30%;
+    min-width: 250px;
+}
+
+.expensesText {
+    margin-left: 1rem;
+    flex-grow: 1;
+}
+
+.expensesValueText {
+    color: white;
+    margin-right: 0.5rem;
+}
