@@ -59,7 +59,11 @@ const displayData = () => {
                 <div class="line"> 
                     <p class="expensesTitle">${expensesEl.description}</p> 
                     <p class="expensesMuch">- ${formattedValue}</p> 
-                    <p class="precent">${cacu}%</p> 
+                    <p class="precent">
+                    ${(() => {
+                      return (cacu === Infinity || cacu === "Infinity") ? '0' : cacu;
+                    })()}%
+                  </p>   
                     <svg onclick="removeValue(this)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle-expenses" viewBox="0 0 16 16"> <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/> <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/> </svg> 
                 </div>
                 `
@@ -107,8 +111,10 @@ function update() {
         updateIncome()
     }
 
+    updatePercent()
     updateTotal()
     caculatePercent()
+    clearInput()
     } else {
         showSnackbar()
     }
@@ -174,6 +180,7 @@ function removeValue(svgElement) {
         line.remove();
     }
 
+    updatePercent()
     updateTotal() 
     caculatePercent()
 }
@@ -182,7 +189,7 @@ function caculatePercent() {
     const expenses = parseFloat(expensesTitleElem.innerText.replace(/[^\d.-]/g, ''))
     const income = parseFloat(incomeTitleElem.innerText.replace(/[^\d.-]/g, ''))
     let percent = (((expenses / income) * 100) * (-1)).toFixed(0)
-    if (percent == "NaN") {
+    if (percent == "NaN" || percent == Infinity) {
         percent = 0
     }
     percentElem.innerText = percent + "%"
@@ -235,7 +242,12 @@ function updateExpenses() {
     <div class="line"> 
         <p class="expensesTitle">${descriptionElem.value}</p> 
         <p class="expensesMuch">- ${formattedValue}</p> 
-        <p class="precent">${caculatePercent2()}%</p> 
+        <p class="precent">
+        ${(() => {
+          const percent = caculatePercent2();
+          return (percent === Infinity || percent === "Infinity") ? '0' : percent;
+        })()}%
+      </p>      
         <svg onclick="removeValue(this)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle-expenses" viewBox="0 0 16 16"> <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/> <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/> </svg> 
     </div>
     `
@@ -278,4 +290,36 @@ function showSnackbar() {
         snackbarMessage.classList.remove("show");
     }, 2400);
 }
-  
+
+function updatePercent() {
+    expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+    expensesElem.innerHTML = '<p class="expensesDetailText">EXPENSES</p>'
+    expenses.forEach(expensesEl => {
+        const formattedValue = (+expensesEl.value).toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2 
+        })
+
+        const income = parseFloat(incomeTitleElem.innerText.replace(/[^\d.-]/g, ''))
+        const cacu = ((expensesEl.value / income) * 100).toFixed(0)
+
+        expensesElem.innerHTML += (
+            `
+            <div class="line"> 
+                <p class="expensesTitle">${expensesEl.description}</p> 
+                <p class="expensesMuch">- ${formattedValue}</p> 
+                <p class="precent">
+                ${(() => {
+                  return (cacu === Infinity || cacu === "Infinity") ? '0' : cacu;
+                })()}%
+              </p>   
+                <svg onclick="removeValue(this)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle-expenses" viewBox="0 0 16 16"> <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/> <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/> </svg> 
+            </div>
+            `
+        )})
+}
+
+function clearInput() {
+    descriptionElem.value = ''
+    valueElem.value = ''
+}

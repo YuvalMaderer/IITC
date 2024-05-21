@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="data"></div>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+    <script>
+      const data = document.getElementById("data");
+      const url1 = "https://jsonplaceholder.typicode.com/posts/";
+      const url2 = "https://jsonplaceholder.typicode.com/users/";
+      const url3 = "https://jsonplaceholder.typicode.com/comments/";
+
+      axios
+        .all([axios.get(url1), axios.get(url2), axios.get(url3)])
+        .then(
+          axios.spread(function (posts, users, comments) {
+            const p1 = document.createElement("p");
+            const p2 = document.createElement("p");
+            const p3 = document.createElement("p");
+            p1.innerHTML = posts.data.length;
+            p2.innerHTML = users.data.length;
+            p3.innerHTML = comments.data.length;
+            data.appendChild(p1);
+            data.appendChild(p2);
+            data.appendChild(p3);
+          })
+        )
+        .catch(function (error) {
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>
