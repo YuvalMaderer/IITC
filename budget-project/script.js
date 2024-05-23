@@ -128,15 +128,17 @@ function removeValue(svgElement) {
 
     if (lineTypeId == "incomeDetail") {
         let income = JSON.parse(localStorage.getItem("income")) || [];
+        const muchMoney = line.querySelector(".incomeMuch").textContent;
+        let num = Math.floor(parseFloat(muchMoney.replace("+", "").replace(/,/g, "").trim()));        
         let index = 0
-        for (let i = 0; i < income.lenght; i++) {
-            if (income[i] == value.innerText) {
-                index = i
+        for (let i = 0; i < income.length; i++) {
+            if (parseInt(income[i].value) === num) {
+                index = i;
+                break;
             }
         }
         income.splice(index, 1)
         localStorage.setItem("income", JSON.stringify(income))
-
         let incomeMuch = line.querySelector(".incomeMuch")
         let number = parseFloat(incomeMuch.outerText.replace(/[^\d.-]/g, ''));
         const sum = parseFloat(incomeTitleElem.innerText.replace(/[^\d.-]/g, '')) - number
@@ -153,13 +155,18 @@ function removeValue(svgElement) {
 
     } else if (lineTypeId == "expensesDetail") {
         let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
-        let index = 0
-        for (let i = 0; i < expenses.lenght; i++) {
-            if (expenses[i] == value.innerText) {
-                index = i
+        const muchMoney = line.querySelector(".expensesMuch").textContent;
+        let num = Math.floor(parseFloat(muchMoney.replace("-", "").replace(/,/g, "").trim()));       
+        let index = -1;
+        for (let i = 0; i < expenses.length; i++) { 
+            if (parseInt(expenses[i].value) === num) {
+                index = i;
+                break;
             }
         }
-        expenses.splice(index, 1)
+        if (index !== -1) {
+            expenses.splice(index, 1);
+        }
         localStorage.setItem("expenses", JSON.stringify(expenses))
         let expensesMuch = line.querySelector(".expensesMuch")
         let number = parseFloat(expensesMuch.outerText.replace(/[^\d.-]/g, ''));

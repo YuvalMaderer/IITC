@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="data"></div>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+    <script>
+      const data = document.getElementById("data");
+      const url1 = "https://jsonplaceholder.typicode.com/posts/";
+      const url2 = "https://jsonplaceholder.typicode.com/comments/";
+
+      async function all(url) {
+        try {
+          const response = await axios.get(url);
+          return response.data;
+        } catch (error) {
+          console.error("Error fetching data from", url, error);
+          return [];
+        }
+      }
+
+      async function main() {
+        const res1 = await all(url1);
+        const res2 = await all(url2);
+
+        // Assuming you want to concatenate the results of both responses
+        const sum = res1.length + res2.length;
+
+        let p = document.createElement("p");
+        p.textContent = `Total number of items: ${sum}`;
+        data.appendChild(p);
+      }
+
+      main();
+    </script>
+  </body>
+</html>
