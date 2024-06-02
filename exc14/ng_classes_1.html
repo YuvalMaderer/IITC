@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(name, age, height) {
+          this.name = name;
+          this.age = age;
+          this.height = height;
+        }
+
+        properties = () =>
+          console.log(
+            `name: ${this.name}, age: ${this.age}, height: ${this.height}`
+          );
+      }
+
+      const p1 = new Person("Yuval", 23, 170.0);
+      const p2 = new Person("Erez", 24, 170.0);
+
+      p1.properties();
+      p2.properties();
+    </script>
+  </body>
+</html>

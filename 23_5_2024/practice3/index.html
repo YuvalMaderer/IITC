@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagination Example</title>
+    <style>
+      .post {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+
+      .pagination {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="posts-container"></div>
+    <div id="pagination" class="pagination"></div>
+
+    <script>
+      // Fetching data from JSON file
+      fetch("data.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const posts = data.posts;
+          const comments = data.comments;
+          const postsPerPage = 3; // Number of posts to display per page
+          let currentPage = 1;
+
+          // Function to display posts for a given page
+          function displayPosts(page) {
+            const startIndex = (page - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const postsToShow = posts.slice(startIndex, endIndex);
+
+            const postsContainer = document.getElementById("posts-container");
+            postsContainer.innerHTML = "";
+
+            postsToShow.forEach((post) => {
+              const postElement = document.createElement("div");
+              postElement.classList.add("post");
+              postElement.innerHTML = `<h2>${post.title}</h2><p>Views: ${post.views}</p>`;
+
+              // Adding comments for the post, if any
+              const postComments = comments.filter(
+                (comment) => comment.postId === post.id
+              );
+              postComments.forEach((comment) => {
+                const commentElement = document.createElement("div");
+                commentElement.innerHTML = `<p>${comment.text}</p>`;
+                postElement.appendChild(commentElement);
+              });
+
+              postsContainer.appendChild(postElement);
+            });
+          }
+
+          // Function to generate pagination buttons
+          function generatePagination() {
+            const totalPages = Math.ceil(posts.length / postsPerPage);
+            const paginationContainer = document.getElementById("pagination");
+            paginationContainer.innerHTML = "";
+
+            // Previous button
+            const prevButton = document.createElement("button");
+            prevButton.textContent = "Previous";
+            prevButton.addEventListener("click", () => {
+              if (currentPage > 1) {
+                currentPage--;
+                displayPosts(currentPage);
+                updatePaginationInfo();
+              }
+            });
+            paginationContainer.appendChild(prevButton);
+
+            // Next button
+            const nextButton = document.createElement("button");
+            nextButton.textContent = "Next";
+            nextButton.addEventListener("click", () => {
+              if (currentPage < totalPages) {
+                currentPage++;
+                displayPosts(currentPage);
+                updatePaginationInfo();
+              }
+            });
+            paginationContainer.appendChild(nextButton);
+
+            // Display current page
+            const pageInfo = document.createElement("span");
+            pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+            paginationContainer.appendChild(pageInfo);
+          }
+
+          // Function to update pagination information
+          function updatePaginationInfo() {
+            const pageInfo = document.querySelector(".pagination span");
+            pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(
+              posts.length / postsPerPage
+            )}`;
+          }
+
+          // Initially display first page of posts and generate pagination
+          displayPosts(currentPage);
+          generatePagination();
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+    </script>
+  </body>
+</html>

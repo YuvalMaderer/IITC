@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Application - Books</title>
+    <style>
+      /* Add some basic styles */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+
+      form {
+        margin-bottom: 20px;
+      }
+
+      form div {
+        margin-bottom: 10px;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .pagination button {
+        margin: 0 5px;
+        padding: 10px 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CRUD Application for Books</h1>
+    <button id="getAllBooks">Get All Books</button>
+    <table id="booksTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Author</th>
+          <th>Number of Pages</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h2>Create Book</h2>
+    <form id="createBookForm">
+      <div>
+        <label for="createBookName">Name:</label>
+        <input type="text" id="createBookName" required />
+      </div>
+      <div>
+        <label for="createBookAuthor">Author:</label>
+        <input type="text" id="createBookAuthor" required />
+      </div>
+      <div>
+        <label for="createBookPages">Number of Pages:</label>
+        <input type="number" id="createBookPages" required />
+      </div>
+      <button type="submit">Create Book</button>
+    </form>
+
+    <h2>Delete Book</h2>
+    <form id="deleteBookForm">
+      <div>
+        <label for="deleteBookId">Book ID:</label>
+        <input type="number" id="deleteBookId" required />
+      </div>
+      <button type="submit">Delete Book</button>
+    </form>
+
+    <h2>Update Book</h2>
+    <form id="updateBookForm">
+      <div>
+        <label for="updateBookId">Book ID:</label>
+        <input type="number" id="updateBookId" required />
+      </div>
+      <div>
+        <label for="updateBookName">Name:</label>
+        <input type="text" id="updateBookName" required />
+      </div>
+      <div>
+        <label for="updateBookAuthor">Author:</label>
+        <input type="text" id="updateBookAuthor" required />
+      </div>
+      <div>
+        <label for="updateBookPages">Number of Pages:</label>
+        <input type="number" id="updateBookPages" required />
+      </div>
+      <button type="submit">Update Book</button>
+    </form>
+
+    <div class="pagination">
+      <button id="prevPageBooks" disabled>Previous</button>
+      <span id="pageNumberBooks">Page 1</span>
+      <button id="nextPageBooks">Next</button>
+    </div>
+
+    <script src="books.js"></script>
+  </body>
+</html>
